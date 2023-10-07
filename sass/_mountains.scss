@@ -1,0 +1,153 @@
+@use 'sass:map';
+@import 'variables';
+@import 'breakpoints';
+
+// ******************************** //
+
+@mixin imageOptions {
+  border-radius: 15px;
+  background-position: center;
+  background-size: 100%;
+  display: flex;
+  align-items: end;
+  h3 {
+    position: relative;
+    color: $secondary;
+    left: 15px;
+    font-size: map.get($font-size, 'lg');
+    font-family: $font-primary;
+  }
+}
+
+.mountains-pictures {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(2, 220px);
+  column-gap: 15px;
+  row-gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+
+  [class^='image-'] {
+    width: 330px;
+    cursor: pointer;
+    @include imageOptions;
+  }
+  .image-1 {
+    background-image: url('/assets/img/mtcook.jpg');
+  }
+  .image-2 {
+    background-size: cover;
+    background-image: url('/assets/img/weisshorn.jpg');
+  }
+  .image-3 {
+    background-image: url('/assets/img/alpamayo.jpg');
+  }
+  .image-4 {
+    background-image: url('/assets/img/groÃglockner.jpg');
+  }
+  .image-5 {
+    background-image: url('/assets/img/aconcagua.jpg');
+  }
+  .image-6 {
+    background-image: url('/assets/img/lhotse.jpg');
+  }
+}
+
+//  ********** MEGIA QUERY  **************//
+
+@media screen and (max-width: 1100px) {
+  .mountains-pictures {
+    max-width: 850px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 165px);
+
+    [class^='image-'] {
+      width: 270px;
+      background-size: cover;
+      @include imageOptions;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .mountains-pictures {
+    max-width: 650px;
+    height: 450px;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 140px);
+
+    [class^='image-'] {
+      width: 330px;
+      @include imageOptions;
+    }
+  }
+}
+@media screen and (max-width: 760px) {
+  .mountains-pictures {
+    max-width: 650px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    [class^='image-'] {
+      width: 90%;
+      background-size: cover;
+      height: 320px;
+      @include imageOptions;
+    }
+  }
+}
+@include xs {
+  .mountains-pictures {
+    max-width: 650px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    [class^='image-'] {
+      width: 90%;
+      background-size: cover;
+      height: 250px;
+      @include imageOptions;
+    }
+  }
+}
+@include xxs {
+  .mountains-pictures {
+    max-width: 650px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    [class^='image-'] {
+      width: 330px;
+      height: 180px;
+      @include imageOptions;
+    }
+  }
+}
+@include galaxyFold {
+  .mountains-pictures {
+    width: 100vw;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    [class^='image-'] {
+      width: 250px;
+      height: 150px;
+      @include imageOptions;
+    }
+  }
+}

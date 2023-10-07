@@ -1,0 +1,91 @@
+@use 'sass:map';
+@import 'variables';
+@import 'breakpoints';
+
+// ******************************** //
+
+@mixin baseVia() {
+  background: black;
+  width: 50px;
+  height: 5px;
+  content: ' ';
+}
+
+// ******** MEDIA QUERY ********//
+
+@include xs {
+  nav {
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: end;
+      li {
+        display: none;
+      }
+      .toggle-bar {
+        display: block;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: -25px;
+        margin-right: 45px;
+
+        .bar-to-toggle {
+          @include baseVia;
+        }
+        .bar-to-toggle::before {
+          position: absolute;
+          margin-top: 12px;
+          @include baseVia;
+        }
+        .bar-to-toggle::after {
+          position: absolute;
+          margin-top: 25px;
+          @include baseVia;
+        }
+      }
+    }
+  }
+}
+
+@include galaxyFold {
+  nav {
+    ul {
+      display: flex;
+      justify-content: end;
+      li {
+        display: none;
+      }
+      .toggle-bar {
+        display: block;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        // justify-content: center;
+        // align-items: center;
+        margin-right: 20px;
+        margin-top: -15px;
+
+        .bar-to-toggle {
+          width: 25px;
+          height: 3px;
+        }
+        .bar-to-toggle::before {
+          position: absolute;
+          margin-top: 6px;
+          width: 25px;
+          height: 3px;
+        }
+        .bar-to-toggle::after {
+          position: absolute;
+          margin-top: 12px;
+          width: 25px;
+          height: 3px;
+        }
+      }
+    }
+  }
+}

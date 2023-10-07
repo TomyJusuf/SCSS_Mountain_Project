@@ -1,0 +1,56 @@
+@use 'sass:map';
+@import 'variables';
+@import 'breakpoints';
+
+// ***************************** //
+
+.about {
+  margin: 70px auto;
+  max-width: 770px;
+  width: 90%;
+  .about-content {
+    @include positioning(center);
+    width: 100%;
+    flex-wrap: wrap;
+    .quote {
+      width: 100%;
+      text-align: center;
+      margin: 15px 0;
+      img {
+        width: 40px;
+      }
+    }
+    h1 {
+      font-size: map.get($font-size, 'lg');
+      font-family: $font-primary;
+      font-weight: $font-bold;
+    }
+    p {
+      font-size: map.get($font-size, 'sm');
+      font-family: $font-primary;
+      font-weight: $font-regular;
+      text-align: center;
+    }
+  }
+}
+
+@include galaxyFold {
+  .about {
+    margin: 20px auto;
+    .about-content {
+      // width: 290px;
+      .quote {
+        width: 80%;
+        img {
+          width: 20px;
+        }
+      }
+      h1 {
+        font-size: 0.9rem;
+      }
+      p {
+        text-align: justify;
+      }
+    }
+  }
+}

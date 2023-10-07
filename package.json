@@ -1,0 +1,14 @@
+{
+  "name": "mountain_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass --watch sass/styles.scss build/style.css"
+  },
+  "author": "TomyJusuf",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.68.0"
+  }
+}

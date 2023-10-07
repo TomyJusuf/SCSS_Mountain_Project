@@ -1,0 +1,168 @@
+@use 'sass:map';
+@import 'variables';
+@import 'breakpoints';
+
+// *************************** //
+
+@mixin fontSetStandart {
+  text-transform: uppercase;
+  font-family: $font-primary;
+  font-weight: $font-medium;
+}
+
+.contact {
+  width: 100%;
+  background: $primary;
+  height: 200px;
+  .contact-section {
+    @include positioning(space-between);
+    max-width: 1000px;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+
+    .news-letter {
+      width: 70%;
+      position: relative;
+    }
+    .news-letter > h1 {
+      @include fontSetStandart;
+      color: $secondary;
+      font-weight: $font-bold;
+
+      font-size: map.get($font-size, 'lg');
+    }
+    .send-section {
+      label {
+        @include fontSetStandart;
+        background: $secondary;
+        color: $primary;
+        padding: 14px 35px;
+        position: absolute;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-weight: $font-bold;
+        cursor: pointer;
+      }
+
+      input {
+        position: relative;
+        background-color: $primary;
+        padding: 12px;
+        width: 50%;
+        border: none;
+        border: 2px solid $secondary;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+    ::placeholder {
+      @include fontSetStandart;
+      font-size: map.get($font-size, 'md');
+      color: $secondary;
+    }
+  }
+  .follow {
+    color: $secondary;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    h1 {
+      text-align: end;
+      width: 100%;
+      font-weight: $font-bold;
+
+      @include fontSetStandart();
+      font-size: map.get($font-size, 'lg');
+    }
+
+    .icons > [class^='icon-'] {
+      width: 50px;
+      height: 50px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+// *************** MEDIA QUERY **************** //
+@include xs {
+  .contact {
+    height: 280px;
+    padding-top: 50px;
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      .send-section {
+        width: 100%;
+        input {
+          width: 90%;
+        }
+      }
+
+      .follow {
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        h1 {
+          font-weight: $font-bold;
+          text-align: center;
+          padding-bottom: 15px;
+        }
+        .icons {
+          display: flex;
+          justify-content: space-evenly;
+          width: 50%;
+          margin: 0 5px;
+          margin-bottom: 250px;
+        }
+      }
+    }
+  }
+}
+
+@include galaxyFold {
+  .contact {
+    height: 280px;
+    padding-top: 50px;
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+
+      .send-section {
+        label {
+          @include fontSetStandart;
+          padding: 14px 10px;
+        }
+
+        input {
+          width: 80%;
+        }
+      }
+
+      .follow {
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        h1 {
+          font-weight: $font-bold;
+          text-align: center;
+          padding-bottom: 15px;
+        }
+        .icons {
+          display: flex;
+          justify-content: space-evenly;
+          width: 50%;
+          margin: 0 5px;
+          margin-bottom: 250px;
+        }
+      }
+    }
+  }
+}

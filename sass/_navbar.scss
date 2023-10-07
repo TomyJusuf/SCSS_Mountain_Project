@@ -1,0 +1,68 @@
+@use 'sass:map';
+@import 'variables';
+@import 'breakpoints';
+
+// ***************************** //
+
+nav {
+  width: 100vw;
+  height: 50px;
+  margin: 0 auto;
+  padding: 10px 0;
+  background: $secondary;
+  position: fixed;
+  @include positioning(space-between);
+
+  img {
+    width: 100px;
+    margin-left: 50px;
+  }
+  ul {
+    width: 500px;
+    height: 50px;
+    @include positioning(space-evenly);
+
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: map.get($font-size, 'md');
+        color: $text-color;
+        font-family: $font-primary;
+        font-weight: $font-medium;
+      }
+    }
+  }
+}
+@include galaxyFold {
+  nav {
+    width: 280px;
+    height: 30px;
+    margin: 0 auto;
+    padding: 10px 0;
+    background: $secondary;
+    position: fixed;
+    @include positioning(center);
+
+    img {
+      width: 60px;
+      margin-left: 20px;
+    }
+    ul {
+      @include positioning(space-evenly);
+
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: map.get($font-size, 'md');
+          color: $text-color;
+          font-family: $font-primary;
+          font-weight: $font-medium;
+        }
+      }
+    }
+  }
+}

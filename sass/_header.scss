@@ -1,0 +1,67 @@
+@use 'sass:map';
+@import 'variables';
+@import 'breakpoints';
+
+// ********************************** //
+
+header {
+  width: 100%;
+  background-image: url('/assets/img/groÃglockner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+  @include positioning(center);
+  .info {
+    @include positioning(center);
+    flex-direction: column;
+
+    h1 {
+      text-transform: uppercase;
+      width: 650px;
+      text-align: center;
+      font-weight: $font-bold;
+      font-family: $font-primary;
+      font-size: 3rem;
+    }
+    button {
+      width: auto;
+      padding: $padding-button-size;
+      background-color: $primary;
+      text-transform: uppercase;
+      color: $secondary;
+      font-family: $font-primary;
+      font-weight: $font-medium;
+      letter-spacing: 1.2px;
+      border: none;
+      font-size: map.get($font-size, 'md');
+      cursor: pointer;
+    }
+  }
+}
+
+// ************ MEDIA QUERY ************** //
+
+@include sm {
+  header > .info > h1 {
+    width: 350px;
+    font-size: map.get($font-size, 'xl');
+  }
+  .button {
+    font-size: map.get($font-size, 'md');
+  }
+}
+
+@include galaxyFold {
+  header {
+    margin: 0 auto;
+    height: 30vh;
+    .info > h1 {
+      font-size: 0.6rem;
+    }
+    .info > button {
+      padding: 5px;
+      font-size: 0.5rem;
+    }
+  }
+}

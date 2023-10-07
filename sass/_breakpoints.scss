@@ -1,0 +1,40 @@
+$breakpoints: (
+  'galaxyFold': 280px,
+  'xxs': 460px,
+  'xs': 680px,
+  'sm': 760px,
+  'md': 900px,
+  'lg': 1100px,
+);
+
+@mixin lg {
+  @media (max-width: map-get($breakpoints,'lg')) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints,'md')) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: map-get($breakpoints,'sm')) {
+    @content;
+  }
+}
+@mixin xs {
+  @media (max-width: map-get($breakpoints,'xs')) {
+    @content;
+  }
+}
+@mixin xxs {
+  @media (max-width: map-get($breakpoints,'xs')) {
+    @content;
+  }
+}
+
+@mixin galaxyFold {
+  @media (max-width: map-get($breakpoints,'xs')) {
+    @content;
+  }
+}

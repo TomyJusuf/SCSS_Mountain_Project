@@ -1,0 +1,108 @@
+@import 'variables';
+@import 'breakpoints';
+
+// *************************** //
+
+aside {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 200px;
+  right: 0;
+  width: 50px;
+  gap: 5px;
+  z-index: 10000;
+
+  @include positioning(center);
+  [class^='btn-'] {
+    width: 50px;
+    height: 50px;
+    background: $primary;
+    cursor: pointer;
+    transition-duration: 0.5s, 0.7s;
+    @include positioning(center);
+
+    img {
+      width: 25px;
+      height: 25px;
+      left: 15px;
+    }
+  }
+  [class^='btn-']:hover {
+    width: 70px;
+    img {
+      padding-right: 15px;
+      transition-duration: 0.5s, 0.7s;
+    }
+  }
+}
+
+// ********* MEDIA QUERY **************//
+@include sm {
+  aside {
+    @include positioning(end);
+    flex-direction: row;
+    bottom: -74vh;
+    width: 200px;
+
+    [class^='btn-'] {
+      background: $primary;
+      width: 50px !important;
+      height: 70px;
+      transition: ease-out 0.5s;
+      @include positioning(center);
+
+      img {
+        margin-top: -15px;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        transition: ease-out 0.6s;
+      }
+    }
+    [class^='btn-']:hover {
+      height: 90px;
+      img {
+        margin-top: -30px;
+        margin-left: 15px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+
+@include galaxyFold {
+  aside {
+    position: fixed;
+    @include positioning(end);
+    flex-direction: row;
+    bottom: -74vh;
+    margin-right: 25px;
+
+    [class^='btn-'] {
+      background: $primary;
+      width: 40px !important;
+      height: 70px;
+      transition: ease-out 0.5s;
+      @include positioning(center);
+
+      img {
+        margin-top: -15px;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        transition: ease-out 0.6s;
+      }
+    }
+    [class^='btn-']:hover {
+      height: 90px;
+      img {
+        margin-top: -30px;
+        margin-left: 15px;
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
